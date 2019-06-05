@@ -1,11 +1,15 @@
 
 
 function startTheGame() {
+
+        document.getElementById("word_holder").innerHTML = "";
+    
 //use this function onClick event for PLAY button
 var bandToGuess; 
 var bandIndex;
 var name;
-
+//welcome text
+document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
 function pickABandToGuess(){
   var bandCollection = ["Metalica", "Deep Purple", "Led Zeppelin"]; 
   bandIndex = Math.floor(Math.random() * bandCollection.length);
@@ -17,7 +21,9 @@ function pickABandToGuess(){
 var name = pickABandToGuess();
 //console.log("selected band " +name );
 
-var left_letter= name.length;
+var left_letter= name.length+5;
+
+document.getElementById("letters_left").innerHTML=left_letter + " ";
 console.log("left_letters "+left_letter);
 function bandNameToArray(name){
 
