@@ -51,6 +51,7 @@ document.getElementById("letters_left").innerHTML=left_letter + " ";
 var userGuess;
 var characters;
 var character;
+var match=0;
 document.onkeyup = function(event) {
 
 // Determines which key was pressed.
@@ -89,8 +90,13 @@ var  xx, t, res;
 
             document.getElementById('word_holder').childNodes[i].style.filter="blur(0)";
             
+            match= match+1;
         }
 
+    }
+    if(match==amountOfLetters){
+        document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
+        
     }
 }
 
