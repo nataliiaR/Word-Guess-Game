@@ -11,7 +11,7 @@ var name;
 //welcome text
 document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
 function pickABandToGuess(){
-  var bandCollection = ["Metalica", "Deep Purple", "Led Zeppelin"]; 
+  var bandCollection =["madonna"]; //["Metalica", "Deep Purple", "Led Zeppelin"]; 
   bandIndex = Math.floor(Math.random() * bandCollection.length);
   //console.log("band index"+bandIndex);
   bandToGuess = bandCollection[bandIndex];
@@ -21,14 +21,13 @@ function pickABandToGuess(){
 var name = pickABandToGuess();
 //console.log("selected band " +name );
 
-
-console.log("left_letters "+left_letter);
 function bandNameToArray(name){
 
   var arrayofChars = name.split("");
   return arrayofChars;
   }
 
+function createBlurredWord(){
 var arrayNew= bandNameToArray(name);
 
 for (i=0; i<arrayNew.length; i++){
@@ -40,16 +39,22 @@ for (i=0; i<arrayNew.length; i++){
   //document.getElementById('word_holder').appendChild(el).style.visibility="";
   document.getElementById('word_holder').appendChild(el).style.borderBottom="1px solid black";
   document.getElementById('word_holder').appendChild(el).style.margin="1em";
-  document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)"
+  document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)";
   
 }
+
+}
+
+createBlurredWord();
 var left_letter= name.length+5;
 document.getElementById("letters_left").innerHTML=left_letter + " ";
-
+var userGuess;
+var characters;
+var character;
 document.onkeyup = function(event) {
 
 // Determines which key was pressed.
-var userGuess = event.key;
+ userGuess = event.key;
 
 /* In this example, we use a cross-browser solution, because the keyCode property does not work on the onkeypress event in Firefox. However, the which property does.
 
@@ -72,6 +77,23 @@ var  xx, t, res;
   left_letter=left_letter-1;
     document.getElementById("letters_left").innerHTML=left_letter + " ";
   
- 
+    var amountOfLetters = document.getElementById('word_holder').childElementCount;
+    console.log ("amount of letters "+amountOfLetters);
+    for (i=0; i<amountOfLetters; i++){
+        
+        characters = document.getElementById('word_holder').childNodes;
+        console.log("user guess + "+ userGuess);
+        character = characters[i].innerHTML;
+        console.log("character in word + " + character );
+        if (userGuess.toLowerCase() == character.toLowerCase()){
+
+            document.getElementById('word_holder').childNodes[i].style.filter="blur(0)";
+            
+        }
+
+    }
 }
+
+
+
 }
