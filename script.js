@@ -2,7 +2,7 @@
 
 function startTheGame() {
 document.getElementById("info").style.display="block";
-        document.getElementById("word_holder").innerHTML = "";
+document.getElementById("word_holder").innerHTML = "";
     
 //use this function onClick event for PLAY button
 var bandToGuess; 
@@ -37,8 +37,11 @@ for (i=0; i<arrayNew.length; i++){
   t = document.createTextNode(arrayNew[i]);
   //el.appendChild("band to guess IS ");
   el.appendChild(t);
-  document.getElementById('word_holder').appendChild(el);
-
+  //document.getElementById('word_holder').appendChild(el).style.visibility="";
+  document.getElementById('word_holder').appendChild(el).style.borderBottom="1px solid black";
+  document.getElementById('word_holder').appendChild(el).style.margin="1em";
+  document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)"
+  
 }
 var left_letter= name.length+5;
 document.getElementById("letters_left").innerHTML=left_letter + " ";
