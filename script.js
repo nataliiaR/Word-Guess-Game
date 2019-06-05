@@ -53,7 +53,7 @@ var characters;
 var character;
 var match=0;
 document.onkeyup = function(event) {
-
+if (left_letter>0){
 // Determines which key was pressed.
  userGuess = event.key;
 
@@ -76,6 +76,8 @@ var  xx, t, res;
   document.getElementById("guessed_letters").appendChild(xx);
   
   left_letter=left_letter-1;
+
+  
     document.getElementById("letters_left").innerHTML=left_letter + " ";
   
     var amountOfLetters = document.getElementById('word_holder').childElementCount;
@@ -96,10 +98,16 @@ var  xx, t, res;
     }
     if(match==amountOfLetters){
         document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
+        document.onkeyup = null;
         
     }
 }
-
+else{
+    document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE WORD!";
+    document.getElementById("info").style.display="none";
+    document.onkeyup = null;
+}
+}
 
 
 }
