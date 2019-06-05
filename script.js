@@ -1,7 +1,7 @@
 
 
 function startTheGame() {
-
+document.getElementById("info").style.display="block";
         document.getElementById("word_holder").innerHTML = "";
     
 //use this function onClick event for PLAY button
@@ -21,9 +21,7 @@ function pickABandToGuess(){
 var name = pickABandToGuess();
 //console.log("selected band " +name );
 
-var left_letter= name.length+5;
 
-document.getElementById("letters_left").innerHTML=left_letter + " ";
 console.log("left_letters "+left_letter);
 function bandNameToArray(name){
 
@@ -42,7 +40,8 @@ for (i=0; i<arrayNew.length; i++){
   document.getElementById('word_holder').appendChild(el);
 
 }
-
+var left_letter= name.length+5;
+document.getElementById("letters_left").innerHTML=left_letter + " ";
 
 document.onkeyup = function(event) {
 
@@ -66,6 +65,10 @@ var  xx, t, res;
   t = document.createTextNode(userGuess);
   xx.appendChild(t);
   document.getElementById("guessed_letters").appendChild(xx);
+  
+  left_letter=left_letter-1;
+    document.getElementById("letters_left").innerHTML=left_letter + " ";
+  
  
 }
 }
