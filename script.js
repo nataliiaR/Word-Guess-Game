@@ -1,113 +1,110 @@
 
 
 function startTheGame() {
-document.getElementById("info").style.display="block";
-document.getElementById("word_holder").innerHTML = "";
-    
-//use this function onClick event for PLAY button
-var bandToGuess; 
-var bandIndex;
-var name;
-//welcome text
-document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
-function pickABandToGuess(){
-  var bandCollection =["madonna"]; //["Metalica", "Deep Purple", "Led Zeppelin"]; 
-  bandIndex = Math.floor(Math.random() * bandCollection.length);
-  //console.log("band index"+bandIndex);
-  bandToGuess = bandCollection[bandIndex];
-  return bandToGuess;
-}
+    //clear guessed word between games
+    document.getElementById("word_holder").innerHTML = "";
+    document.getElementById("guessed_letters").innerHTML ="";
+    //show info tag after starting a game
+    document.getElementById("info").style.display="block";
+    //show welcome text after starting a game
+    document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
 
-var name = pickABandToGuess();
-//console.log("selected band " +name );
+    var bandToGuess; 
+    var bandIndex;
+    var name;
+    var userGuess;
+    var characters;
+    var character;
+    var match=0;
+    var left_letter;
 
-function bandNameToArray(name){
+    function pickABandToGuess(){
+        var bandCollection =["madonna"]; //["Metalica", "Deep Purple", "Led Zeppelin"]; 
+        bandIndex = Math.floor(Math.random() * bandCollection.length);
 
-  var arrayofChars = name.split("");
-  return arrayofChars;
-  }
+        bandToGuess = bandCollection[bandIndex];
+        return bandToGuess;
+    }
 
-function createBlurredWord(){
-var arrayNew= bandNameToArray(name);
+    var name = pickABandToGuess();
 
-for (i=0; i<arrayNew.length; i++){
+
+    function bandNameToArray(name){
+
+        var arrayofChars = name.split("");
+        return arrayofChars;
+    }
+
+    function createBlurredWord(){
+        var arrayNew= bandNameToArray(name);
+
+        for (i=0; i<arrayNew.length; i++){
   
-  var el = document.createElement("SPAN");
-  t = document.createTextNode(arrayNew[i]);
-  //el.appendChild("band to guess IS ");
-  el.appendChild(t);
-  //document.getElementById('word_holder').appendChild(el).style.visibility="";
-  document.getElementById('word_holder').appendChild(el).style.borderBottom="1px solid black";
-  document.getElementById('word_holder').appendChild(el).style.margin="1em";
-  document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)";
-  
-}
-
-}
-
-createBlurredWord();
-var left_letter= name.length+5;
-document.getElementById("letters_left").innerHTML=left_letter + " ";
-var userGuess;
-var characters;
-var character;
-var match=0;
-document.onkeyup = function(event) {
-if (left_letter>0){
-// Determines which key was pressed.
- userGuess = event.key;
-
-/* In this example, we use a cross-browser solution, because the keyCode property does not work on the onkeypress event in Firefox. However, the which property does.
-
-Explanation of the first line in the function below: if the browser supports event.which, then use event.which, otherwise use event.keyCode */
-var  array;
-array = new Array();
-
-var  xx, t, res;
-
-  xx = document.createElement("SPAN");
-  
-  array.push(userGuess);
-  //console.log(userGuess);
-  //console.log(array);
-  //document.getElementById("test").innerHTML = userGuess;
-  t = document.createTextNode(userGuess);
-  xx.appendChild(t);
-  document.getElementById("guessed_letters").appendChild(xx);
-  
-  left_letter=left_letter-1;
-
-  
-    document.getElementById("letters_left").innerHTML=left_letter + " ";
-  
-    var amountOfLetters = document.getElementById('word_holder').childElementCount;
-    console.log ("amount of letters "+amountOfLetters);
-    for (i=0; i<amountOfLetters; i++){
-        
-        characters = document.getElementById('word_holder').childNodes;
-        console.log("user guess + "+ userGuess);
-        character = characters[i].innerHTML;
-        console.log("character in word + " + character );
-        if (userGuess.toLowerCase() == character.toLowerCase()){
-
-            document.getElementById('word_holder').childNodes[i].style.filter="blur(0)";
+            var el = document.createElement("SPAN");
+            t = document.createTextNode(arrayNew[i]);
+            el.appendChild(t);
+            document.getElementById('word_holder').appendChild(el).style.borderBottom="1px solid black";
+            document.getElementById('word_holder').appendChild(el).style.margin="1em";
+            document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)";
             
-            match= match+1;
         }
+    }
 
+    createBlurredWord();
+
+    left_letter= name.length+5;
+
+    document.getElementById("letters_left").innerHTML=left_letter + " ";
+
+    document.onkeyup = function(event) {
+        if (left_letter>0){
+        // Determines which key was pressed.
+            userGuess = event.key;
+            //array to keep already pressed keys
+            var  array= new Array();
+            //helpers
+            var  spanElement, textNodeinSpan;
+            //create new span element to keep entered value there
+            spanElement = document.createElement("SPAN");
+            
+            array.push(userGuess);
+            textNodeinSpan = document.createTextNode(userGuess);
+            spanElement.appendChild(textNodeinSpan);
+            document.getElementById("guessed_letters").appendChild(spanElement);
+            
+            left_letter=left_letter-1;
+
+            
+            document.getElementById("letters_left").innerHTML=left_letter + " ";
+
+            var amountOfLetters = document.getElementById('word_holder').childElementCount;
+
+            for (i=0; i<amountOfLetters; i++){
+            
+                characters = document.getElementById('word_holder').childNodes;
+   
+                character = characters[i].innerHTML;
+
+                if (userGuess.toLowerCase() == character.toLowerCase()){
+
+                    document.getElementById('word_holder').childNodes[i].style.filter="blur(0)";
+                    
+                    match= match+1;
+                }
+
+            }
+            if(match==amountOfLetters){
+                document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
+                document.onkeyup = null;
+            
+            }
+        }
+        else{
+            document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE WORD!";
+            document.getElementById("info").style.display="none";
+            document.onkeyup = null;
+        }   
     }
-    if(match==amountOfLetters){
-        document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
-        document.onkeyup = null;
-        
-    }
-}
-else{
-    document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE WORD!";
-    document.getElementById("info").style.display="none";
-    document.onkeyup = null;
-}
-}
 
 
 }
