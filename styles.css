@@ -16,6 +16,12 @@
         width: 40%;
     }
 }
+.game_body{
+
+    margin: 2.5em auto;
+    text-align: center;
+
+}
 #header{
     background: url("assets/images/map.jpg");
     width:40em;
@@ -25,7 +31,10 @@
     
 
 }
+#word_holder{
+    margin: 2em auto;
 
+}
 h1{
     color: white;
     padding: 2em;

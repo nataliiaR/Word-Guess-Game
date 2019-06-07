@@ -18,6 +18,7 @@ function startTheGame() {
     var character;
     var match=0;
     var left_letter;
+    var amountOfLetters =0;
 
     var country1 ={
         name:"UKRAINE",
@@ -90,9 +91,11 @@ function startTheGame() {
     document.getElementById("letters_left").innerHTML=left_letter + " ";
 
     document.onkeyup = function(event) {
-        if (left_letter>0){
+        if (left_letter>0 ){
         // Determines which key was pressed.
             userGuess = event.key;
+           
+            
             //array to keep already pressed keys
             var  array= new Array();
             //helpers
@@ -110,7 +113,8 @@ function startTheGame() {
             
             document.getElementById("letters_left").innerHTML=left_letter + " ";
 
-            var amountOfLetters = document.getElementById('word_holder').childElementCount;
+            amountOfLetters = document.getElementById('word_holder').childElementCount;
+
 
             for (i=0; i<amountOfLetters; i++){
             
@@ -118,11 +122,13 @@ function startTheGame() {
    
                 character = characters[i].innerHTML;
 
-                if (userGuess.toLowerCase() == character.toLowerCase()){
-
-                    document.getElementById('word_holder').childNodes[i].style.filter="blur(0)";
+                if (userGuess.toLowerCase() === character.toLowerCase() ){
                     
-                    match= match+1;
+                    if(document.getElementById('word_holder').childNodes[i].style.filter!="blur(0px)"){
+                        document.getElementById('word_holder').childNodes[i].style.filter="blur(0px)";
+                        match= match+1;
+                    }
+
                 }
 
             }
@@ -134,7 +140,10 @@ function startTheGame() {
                 document.getElementById("info").style.display="none";
             
             }
+                    
+ 
         }
+
         else{
             document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE COUNTRY!";
             document.getElementById("info").style.display="none";
