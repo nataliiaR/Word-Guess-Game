@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Rock&Guess word game</title>
+        <title>Guess a country game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="styles.css">
         
     </head>
     <body>
-        <div class="header-container">
-            <div class="header">
-                Image 1
-            </div>   
-            <div class="sub-header">
-                Image 2
+        <div id="header"> 
+            <header>
+                 <h1> Guess a country</h1>
+            </header>
+        </div>
+        <div class="container">
+            <div class="row"> 
+                <div class="col-12 start_button">
+                    <button id="start_game" onClick="startTheGame()">Start a game!</button> 
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-8">
+
+                    <p id="info" style="display:none">  You have <span id="letters_left"> </span>more attempts to guess a letter to reveal the word</p>
+                
+                    <div id="word_holder"></div>
+                    <div id="guessed_letters"></div>
+
+                </div>
+                <div class="col-4">
+                    <div id ="results">
+                            <img class="img-responsive" id="show_image" src="" />
+                    </div>   
+                </div>
+
             </div>
         </div>
-       <div class="container-game">
-           <button id="start_game" onClick="startTheGame()">Start a game!</button> 
-    
-            <p id="info" style="display:none">  You have <span id="letters_left"> </span>more attempts to guess a letter to reveal the word</p>
-            
-            <div id="word_holder"></div>
-            <div id="guessed_letters"></div>
-            <div id ="results"></div>
-
-
-
         <div class="footer">
 
         </div>

@@ -3,46 +3,6 @@
     padding: 0;
 }
 
-.header-container{
-    height: 25em;
-    width: 30em;
-    margin: 5em auto;
-    position: relative;
-}
-
-.header {
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height:80%;
-    width: 80%;
-    border: solid 1em darkblue;
-    background-color: blue;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-
-}
-
-.sub-header {
-    position: absolute;
-    z-index: 2;
-    left: 1em;
-    top: 2%;
-    height: 20%;
-    width: 80%;
-    -ms-transform: matrix(1, -0.3, 0, 1, 0, 0); /* IE 9 */
-    -webkit-transform: matrix(1, -0.3, 0, 1, 0, 0); /* Safari */
-    transform: matrix(1, -0.4, 0, 1, 0, 0); /* Standard syntax */
-    border: solid 1em darkcyan;
-    background-color: aqua;
-    color: #444444;
-    font-weight: bold;
-    font-size: 18px;
-
-}
-
 @media screen and (max-width:578px){
     .header-container{
         height: 60%;
@@ -55,4 +15,53 @@
         height: 10%;
         width: 40%;
     }
+}
+#header{
+    background: url("assets/images/map.jpg");
+    width:40em;
+    margin: auto;
+    height: 21em;
+    opacity: 0.8;
+    
+
+}
+
+h1{
+    color: white;
+    padding: 2em;
+    font-size: 3em;
+    text-shadow: 2px 2px black;
+
+}
+.start_button{
+
+    text-align: center;
+    margin: 1em auto;
+
+}
+#start_game{
+
+    background-color: #ad7c43;
+    font-size: 1em;
+    padding: 0.5em;
+    color: white;
+    font-weight: bold;
+    border-radius: 1em;
+}
+header{
+    padding: 5em auto;
+  
+    text-align: center;
+
+}
+
+button#start-game{
+    text-align:center;
+    max-width: 30%;
+    margin: auto;
+}
+img{
+    width: 300px;
+    height: 200px;
+
 }
