@@ -1,6 +1,8 @@
 
-    document.getElementById("show_image").style.display="none";
+document.getElementById("show_image").style.display="none";
+document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
 function startTheGame() {
+    document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
     //clear guessed word between games
     document.getElementById("show_image").style.display="none";
     document.getElementById("word_holder").innerHTML = "";
@@ -135,6 +137,7 @@ function startTheGame() {
             if(match===amountOfLetters){
                 document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
                 document.getElementById("show_image").style.display="block";
+                document.getElementById("header").style.backgroundImage = 'url("'+ countryToGuess.image + '")';
                 document.getElementById("show_image").src = countryToGuess.image;
                 document.onkeyup = null;
                 document.getElementById("info").style.display="none";
