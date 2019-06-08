@@ -1,10 +1,20 @@
-
-document.getElementById("show_image").style.display="none";
 document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
+document.getElementById("h1_header").style.display="block";
+
+if(document.getElementById("linklearnMore")){
+    document.getElementById("header").removeChild(document.getElementById("linklearnMore"));
+}
+
 function startTheGame() {
+    if(document.getElementById("linklearnMore")){
+        document.getElementById("header").removeChild(document.getElementById("linklearnMore"));
+    }
+    
     document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
+    document.getElementById("h1_header").style.display="block";
+
     //clear guessed word between games
-    document.getElementById("show_image").style.display="none";
+
     document.getElementById("word_holder").innerHTML = "";
     document.getElementById("guessed_letters").innerHTML ="";
     //show info tag after starting a game
@@ -24,33 +34,39 @@ function startTheGame() {
 
     var country1 ={
         name:"UKRAINE",
-        image:"assets/images/ukraine.jpg"
+        image:"assets/images/ukraine.jpg",
+        learnMore: "https://en.wikipedia.org/wiki/Ukraine"
     
     }
 
     var country2 ={
         name:"ICELAND",
-        image:"assets/images/iceland.jpg"
+        image:"assets/images/iceland.jpg",
+        learnMore:"https://en.wikipedia.org/wiki/Iceland"
     }
 
     var country3 ={
         name:"ITALY",
-        image:"assets/images/italy.jpg"
+        image:"assets/images/italy.jpg",
+        learnMore:"https://en.wikipedia.org/wiki/Italy"
     }
 
     var country4 ={
         name:"ARGENTINA",
-        image:"assets/images/argentina.jpg"
+        image:"assets/images/argentina.jpg",
+        learnMore:"https://en.wikipedia.org/wiki/Argentina"
     }
 
     var country5 ={
         name:"AUSTRALIA",
-        image:"assets/images/australia.jpg"
+        image:"assets/images/australia.jpg",
+        learnMore:"https://en.wikipedia.org/wiki/Australia"
     }
 
     var country6 ={
         name:"NICARAGUA",
-        image:"assets/images/nicaragua.jpg"
+        image:"assets/images/nicaragua.jpg",
+        learnMore:"https://en.wikipedia.org/wiki/Nicaragua"
     }
 
 
@@ -136,9 +152,13 @@ function startTheGame() {
             }
             if(match===amountOfLetters){
                 document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
-                document.getElementById("show_image").style.display="block";
                 document.getElementById("header").style.backgroundImage = 'url("'+ countryToGuess.image + '")';
-                document.getElementById("show_image").src = countryToGuess.image;
+                document.getElementById("h1_header").style.display="none";
+                var learnMoreLink = document.createElement("a");
+                learnMoreLink.textContent="Learn more";
+                learnMoreLink.setAttribute('href',countryToGuess.learnMore);
+                learnMoreLink.setAttribute("id","linklearnMore");
+                document.getElementById("learnMore").appendChild(learnMoreLink);
                 document.onkeyup = null;
                 document.getElementById("info").style.display="none";
             
