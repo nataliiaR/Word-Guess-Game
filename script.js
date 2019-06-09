@@ -32,47 +32,22 @@ function startTheGame() {
     var left_letter;
     var amountOfLetters =0;
 
-    var country1 ={
-        name:"UKRAINE",
-        image:"assets/images/ukraine.jpg",
-        learnMore: "https://en.wikipedia.org/wiki/Ukraine"
-    
-    }
-
-    var country2 ={
-        name:"ICELAND",
-        image:"assets/images/iceland.jpg",
-        learnMore:"https://en.wikipedia.org/wiki/Iceland"
-    }
-
-    var country3 ={
-        name:"ITALY",
-        image:"assets/images/italy.jpg",
-        learnMore:"https://en.wikipedia.org/wiki/Italy"
-    }
-
-    var country4 ={
-        name:"ARGENTINA",
-        image:"assets/images/argentina.jpg",
-        learnMore:"https://en.wikipedia.org/wiki/Argentina"
-    }
-
-    var country5 ={
-        name:"AUSTRALIA",
-        image:"assets/images/australia.jpg",
-        learnMore:"https://en.wikipedia.org/wiki/Australia"
-    }
-
-    var country6 ={
-        name:"NICARAGUA",
-        image:"assets/images/nicaragua.jpg",
-        learnMore:"https://en.wikipedia.org/wiki/Nicaragua"
-    }
-
+    var country1 ={ name:"UKRAINE",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/125px-Flag_of_Ukraine.svg.png",learnMore: "https://en.wikipedia.org/wiki/Ukraine"}
+    var country2 ={name:"ICELAND",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/125px-Flag_of_Iceland.svg.png",learnMore:"https://en.wikipedia.org/wiki/Iceland"}
+    var country3 ={name:"ITALY",image:"https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/125px-Flag_of_Italy.svg.png",learnMore:"https://en.wikipedia.org/wiki/Italy"}
+    var country4 ={name:"ARGENTINA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/125px-Flag_of_Argentina.svg.png",learnMore:"https://en.wikipedia.org/wiki/Argentina"}
+    var country5 ={name:"AUSTRALIA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/125px-Flag_of_Australia_%28converted%29.svg.png",learnMore:"https://en.wikipedia.org/wiki/Australia"}
+    var country6 ={name:"NICARAGUA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/125px-Flag_of_Nicaragua.svg.png",learnMore:"https://en.wikipedia.org/wiki/Nicaragua"}
+    var country7 ={ name:"POLAND",image:"https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/125px-Flag_of_Poland.svg.png",learnMore: "https://en.wikipedia.org/wiki/Poland"}
+    var country8 ={name:"PORTUGAL",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/125px-Flag_of_Portugal.svg.png",learnMore:"https://en.wikipedia.org/wiki/Portugal"}
+    var country9 ={name:"HUNGARY",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/125px-Flag_of_Hungary.svg.png",learnMore:"https://en.wikipedia.org/wiki/Hungary"}
+    var country10 ={name:"INDIA",image:"https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/125px-Flag_of_India.svg.png",learnMore:"https://en.wikipedia.org/wiki/India"}
+    var country11 ={name:"JAPAN",image:"https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/125px-Flag_of_Japan.svg.png",learnMore:"https://en.wikipedia.org/wiki/Japan"}
+    var country12 ={name:"GEORGIA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/125px-Flag_of_Georgia.svg.png",learnMore:"https://en.wikipedia.org/wiki/Georgia_(country)"}
 
     
     function pickACountryToGuess(){
-        var countryCollection =[country1, country2,country3,country4,country5,country6];
+        var countryCollection =[country1, country2,country3,country4,country5,country6,country7, country8,country9,country10,country11,country12];
         countryIndex = Math.floor(Math.random() * countryCollection.length);
 
         countryToGuess = countryCollection[countryIndex];
