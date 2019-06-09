@@ -22,14 +22,29 @@
     text-align: center;
 
 }
+.rules{
+    
+    width: 60em;
+    margin: 1em auto;
+}
+
+.rules p{
+    font-size:1em;
+    margin: 0.2em;
+}
+
 #header{
     background: url("assets/images/map.jpg");
     width:40em;
     margin: auto;
     height: 21em;
     opacity: 0.8;
-    
+    background-size: 40em 21em;
 
+}
+
+label{
+    background-color: orange;
 }
 #word_holder{
     margin: 2em auto;
@@ -43,12 +58,16 @@ h1{
 
 }
 
-a{ margin-top: 3em;
+
+#linklearnMore { 
+    position: absolute;
+    top:6em;
     color: white;
-    padding: 2em;
-    font-size: 3em;
-    text-shadow: 2px 2px black;
+    font-size: 2em;
+    text-shadow: 1px 1px black;
     text-decoration: none;
+
+   
 
 }
 a:active{
@@ -75,8 +94,8 @@ a:hover{
 }
 header{
     padding: 5em auto;
-  
     text-align: center;
+    position: relative;
 
 }
 

@@ -2,12 +2,12 @@ document.getElementById("header").style.backgroundImage='url("assets/images/map.
 document.getElementById("h1_header").style.display="block";
 
 if(document.getElementById("linklearnMore")){
-    document.getElementById("header").removeChild(document.getElementById("linklearnMore"));
+    document.getElementById("learnMore").removeChild(document.getElementById("linklearnMore"));
 }
 
 function startTheGame() {
     if(document.getElementById("linklearnMore")){
-        document.getElementById("header").removeChild(document.getElementById("linklearnMore"));
+        document.getElementById("learnMore").removeChild(document.getElementById("linklearnMore"));
     }
     
     document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
@@ -112,7 +112,6 @@ function startTheGame() {
         if (left_letter>0 ){
         // Determines which key was pressed.
             userGuess = event.key;
-           
             
             //array to keep already pressed keys
             var  array= new Array();
@@ -124,7 +123,7 @@ function startTheGame() {
             array.push(userGuess);
             textNodeinSpan = document.createTextNode(userGuess);
             spanElement.appendChild(textNodeinSpan);
-            document.getElementById("guessed_letters").appendChild(spanElement);
+            document.getElementById("guessed_letters").appendChild(spanElement).style.margin="0.7em";
             
             left_letter=left_letter-1;
 
@@ -155,10 +154,11 @@ function startTheGame() {
                 document.getElementById("header").style.backgroundImage = 'url("'+ countryToGuess.image + '")';
                 document.getElementById("h1_header").style.display="none";
                 var learnMoreLink = document.createElement("a");
-                learnMoreLink.textContent="Learn more";
+                learnMoreLink.textContent="Learn more about " + countryToGuess.name;
                 learnMoreLink.setAttribute('href',countryToGuess.learnMore);
                 learnMoreLink.setAttribute("id","linklearnMore");
                 document.getElementById("learnMore").appendChild(learnMoreLink);
+            
                 document.onkeyup = null;
                 document.getElementById("info").style.display="none";
             
