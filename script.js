@@ -78,7 +78,9 @@ function startTheGame() {
             t = document.createTextNode(arrayNew[i]);
             el.appendChild(t);
             document.getElementById('word_holder').appendChild(el).style.margin="1em";
-            document.getElementById('word_holder').appendChild(el).style.filter="blur(4px)"; 
+            document.getElementById('word_holder').appendChild(el).style.fontSize="2em";
+            document.getElementById('word_holder').appendChild(el).style.fontWeight="bold";
+            document.getElementById('word_holder').appendChild(el).style.filter="blur(8px)"; 
         }
     }
 
