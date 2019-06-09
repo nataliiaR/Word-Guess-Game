@@ -99,12 +99,52 @@ function startTheGame() {
     document.getElementById("letters_left").innerHTML=left_letter + " ";
 
     document.onkeyup = function(event) {
-        if (left_letter>0 ){
-        // Determines which key was pressed.
+        left_letter=left_letter-1;
+        console.log(left_letter);
+
+        if (left_letter===0){
+        
+                userGuess = event.key;
+                var  array= new Array();
+                var  spanElement, textNodeinSpan;
+                spanElement = document.createElement("SPAN");
+                array.push(userGuess);
+                textNodeinSpan = document.createTextNode(userGuess);
+                spanElement.appendChild(textNodeinSpan);
+                document.getElementById("guessed_letters").appendChild(spanElement).style.margin="0.7em";                  
+                amountOfLetters = document.getElementById('word_holder').childElementCount;
+                for (i=0; i<amountOfLetters; i++){
+                    characters = document.getElementById('word_holder').childNodes;
+                    character = characters[i].innerHTML;
+                    if (userGuess.toLowerCase() === character.toLowerCase() ){ 
+                        if(document.getElementById('word_holder').childNodes[i].style.filter!="blur(0px)"){
+                            document.getElementById('word_holder').childNodes[i].style.filter="blur(0px)";
+                            match= match+1;
+                        }
+                    }
+                }
+                if(match===amountOfLetters){
+                    document.getElementById("guessed_letters").innerHTML="YOU'VE GUESSED THE WORD!";
+                    document.getElementById("header").style.backgroundImage = 'url("'+ countryToGuess.image + '")';
+                    document.getElementById("h1_header").style.display="none";
+                    var learnMoreLink = document.createElement("a");
+                    learnMoreLink.textContent="Learn more about " + countryToGuess.name;
+                    learnMoreLink.setAttribute('href',countryToGuess.learnMore);
+                    learnMoreLink.setAttribute("id","linklearnMore");
+                    document.getElementById("learnMore").appendChild(learnMoreLink);
+                    document.onkeyup = null;
+                    document.getElementById("info").style.display="none";
+                    document.getElementById("start_game").textContent="Start a new game!";
+                    
+                }
+            }
+
+        if (left_letter>0){
+            
             userGuess = event.key;
-         //array to keep already pressed keys
-            var  array= new Array();
-        //helpers
+
+             var  array= new Array();
+
             var  spanElement, textNodeinSpan;
             //create new span element to keep entered value there
             spanElement = document.createElement("SPAN");
@@ -112,8 +152,17 @@ function startTheGame() {
             textNodeinSpan = document.createTextNode(userGuess);
             spanElement.appendChild(textNodeinSpan);
             document.getElementById("guessed_letters").appendChild(spanElement).style.margin="0.7em";
-            left_letter=left_letter-1;
-            document.getElementById("letters_left").innerHTML=left_letter + " ";
+            
+            
+            document.getElementById("letters_left").innerHTML=left_letter + " attempts ";
+            
+   
+        
+            if(left_letter===1){
+                document.getElementById("letters_left").innerHTML=" last attempt ";
+                //left_letter=left_letter+1;
+            }
+            
             amountOfLetters = document.getElementById('word_holder').childElementCount;
             for (i=0; i<amountOfLetters; i++){
                 characters = document.getElementById('word_holder').childNodes;
