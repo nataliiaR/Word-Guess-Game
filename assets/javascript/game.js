@@ -168,7 +168,6 @@ function startTheGame() {
         
             if(left_letter===1){
                 document.getElementById("letters_left").innerHTML=" last attempt ";
-                //left_letter=left_letter+1;
             }
             
             amountOfLetters = document.getElementById('word_holder').childElementCount;
@@ -195,7 +194,6 @@ function startTheGame() {
                 document.getElementById("info").style.display="none";
                 document.getElementById("start_game").textContent="Start a new game!";
                 wins=wins+1;
-                console.log(wins);
                 document.getElementById("wins").innerHTML = wins;
 
             }
@@ -206,7 +204,6 @@ function startTheGame() {
             document.onkeyup = null;
             document.getElementById("start_game").textContent="Start a new game!";
             losses=losses+1;
-            console.log(losses);
             document.getElementById("losses").innerHTML = losses;
         }   
     }
