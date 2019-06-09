@@ -100,6 +100,11 @@ img{
     height: 200px;
 
 }
+
+#guessed_letters{
+    font-size: 1.5em;
+
+}
 @media screen and (max-width:700px)
 {
     .header-container{

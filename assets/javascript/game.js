@@ -6,6 +6,7 @@ if(document.getElementById("linklearnMore")){
 }
 
 function startTheGame() {
+
     if(document.getElementById("linklearnMore")){
         document.getElementById("learnMore").removeChild(document.getElementById("linklearnMore"));
     }
@@ -20,7 +21,7 @@ function startTheGame() {
     //show info tag after starting a game
     document.getElementById("info").style.display="block";
     //show welcome text after starting a game
-    document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
+   // document.createElement("SPAN").appendChild(document.createTextNode("Press a key on keyboard and reveal your letter guess!"));
 
     var countryToGuess; 
     var countryIndex;
@@ -135,12 +136,16 @@ function startTheGame() {
                 document.getElementById("learnMore").appendChild(learnMoreLink);
                 document.onkeyup = null;
                 document.getElementById("info").style.display="none";
+                document.getElementById("start_game").textContent="Start a new game!";
+                
             }
         }
         else{
             document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE COUNTRY!";
             document.getElementById("info").style.display="none";
             document.onkeyup = null;
+            document.getElementById("start_game").textContent="Start a new game!";
+            
         }   
     }
 }
