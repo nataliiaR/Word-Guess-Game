@@ -5,7 +5,7 @@
 
 .game_body{
 
-    margin: 2.5em auto;
+    margin: 0.5em auto;
     text-align: center;
 
 }
@@ -71,7 +71,7 @@ a:hover{
 .start_button{
 
     text-align: center;
-    margin: 1em auto;
+    margin: 0.5em auto;
 
 }
 #start_game{
