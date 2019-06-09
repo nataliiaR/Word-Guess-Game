@@ -53,11 +53,18 @@ function startTheGame() {
     var country19 ={name:"UGANDA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/125px-Flag_of_Uganda.svg.png",learnMore:"https://en.wikipedia.org/wiki/Uganda"}
     var country20 ={name:"BELGIUM",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/125px-Flag_of_Belgium.svg.png",learnMore:"https://en.wikipedia.org/wiki/Belgium"}
     var country21 ={name:"MOROCCO",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/125px-Flag_of_Morocco.svg.png",learnMore:"https://en.wikipedia.org/wiki/Morocco"}
-    
+    var country22 ={name:"MONGOLIA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/125px-Flag_of_Mongolia.svg.png",learnMore:"https://en.wikipedia.org/wiki/Mongolia"}
+    var country23 ={name:"AZERBAIJAN",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/125px-Flag_of_Azerbaijan.svg.png",learnMore:"https://en.wikipedia.org/wiki/Azerbaijan"}
+    var country24 ={name:"ESTONIA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/125px-Flag_of_Estonia.svg.png",learnMore:"https://en.wikipedia.org/wiki/Estonia"}
+    var country25 ={name:"PANAMA",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/125px-Flag_of_Panama.svg.png",learnMore:"https://en.wikipedia.org/wiki/Panama"}
+    var country26 ={name:"MOZAMBIQUE",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/125px-Flag_of_Mozambique.svg.png",learnMore:"https://en.wikipedia.org/wiki/Mozambique"}
+    var country27 ={name:"VIETNAM",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/125px-Flag_of_Vietnam.svg.png",learnMore:"https://en.wikipedia.org/wiki/Vietnam"}
+
     function pickACountryToGuess(){
         var countryCollection =[country1, country2,country3,country4,country5,country6,country7, 
             country8,country9,country10,country11,country12,country13,country14,country15,
-            country16, country17,country18, country19, country20, country21];
+            country16, country17,country18, country19, country20, country21, country22,
+            country22, country23, country24, country25, country26,country27];
         countryIndex = Math.floor(Math.random() * countryCollection.length);
         countryToGuess = countryCollection[countryIndex];
         return countryToGuess.name;
