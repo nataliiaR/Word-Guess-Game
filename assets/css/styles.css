@@ -38,7 +38,7 @@ label{
     background-color: orange;
 }
 #word_holder{
-    margin: 2em auto;
+    margin: 1em auto;
 
 }
 h1{
@@ -106,6 +106,8 @@ img{
 
 #guessed_letters{
     font-size: 1.5em;
+    padding: 0;
+    margin: 0;
 
 }
 .inline{
