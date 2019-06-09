@@ -1,11 +1,17 @@
 document.getElementById("header").style.backgroundImage='url("assets/images/map.jpg")';
 document.getElementById("h1_header").style.display="block";
+document.getElementById("game-results").style.display="none";
 
 if(document.getElementById("linklearnMore")){
     document.getElementById("learnMore").removeChild(document.getElementById("linklearnMore"));
 }
 
+var wins=0;
+var losses=0;
+
 function startTheGame() {
+    document.getElementById("game-results").style.display="block";
+
 
     if(document.getElementById("linklearnMore")){
         document.getElementById("learnMore").removeChild(document.getElementById("linklearnMore"));
@@ -32,6 +38,7 @@ function startTheGame() {
     var match=0;
     var left_letter;
     var amountOfLetters =0;
+
 
     var country1 ={ name:"UKRAINE",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/125px-Flag_of_Ukraine.svg.png",learnMore: "https://en.wikipedia.org/wiki/Ukraine"}
     var country2 ={name:"ICELAND",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/125px-Flag_of_Iceland.svg.png",learnMore:"https://en.wikipedia.org/wiki/Iceland"}
@@ -100,7 +107,6 @@ function startTheGame() {
 
     document.onkeyup = function(event) {
         left_letter=left_letter-1;
-        console.log(left_letter);
 
         if (left_letter===0){
         
@@ -135,6 +141,8 @@ function startTheGame() {
                     document.onkeyup = null;
                     document.getElementById("info").style.display="none";
                     document.getElementById("start_game").textContent="Start a new game!";
+                    wins+=wins;
+                    document.getElementById("wins").textContent = wins;
                     
                 }
             }
@@ -186,7 +194,10 @@ function startTheGame() {
                 document.onkeyup = null;
                 document.getElementById("info").style.display="none";
                 document.getElementById("start_game").textContent="Start a new game!";
-                
+                wins=wins+1;
+                console.log(wins);
+                document.getElementById("wins").innerHTML = wins;
+
             }
         }
         else{
@@ -194,7 +205,9 @@ function startTheGame() {
             document.getElementById("info").style.display="none";
             document.onkeyup = null;
             document.getElementById("start_game").textContent="Start a new game!";
-            
+            losses=losses+1;
+            console.log(losses);
+            document.getElementById("losses").innerHTML = losses;
         }   
     }
 }

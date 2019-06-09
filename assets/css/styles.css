@@ -83,6 +83,9 @@ a:hover{
     font-weight: bold;
     border-radius: 1em;
 }
+.game-results{
+    text-align: center;
+}
 header{
     padding: 5em auto;
     text-align: center;
