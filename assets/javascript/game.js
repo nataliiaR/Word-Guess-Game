@@ -108,7 +108,7 @@ function startTheGame() {
     document.onkeyup = function(event) {
         left_letter=left_letter-1;
 
-        if (left_letter===0){
+       if (left_letter===0){
         
                 userGuess = event.key;
                 var  array= new Array();
@@ -166,7 +166,7 @@ function startTheGame() {
             
    
         
-            if(left_letter===1){
+            if(left_letter===0){
                 document.getElementById("letters_left").innerHTML=" last attempt ";
             }
             
@@ -198,13 +198,14 @@ function startTheGame() {
 
             }
         }
-        else{
+        else if (match!==amountOfLetters){ 
             document.getElementById("guessed_letters").innerHTML="OH NO, YOU DID NOT GUESS THE COUNTRY!";
             document.getElementById("info").style.display="none";
             document.onkeyup = null;
             document.getElementById("start_game").textContent="Start a new game!";
             losses=losses+1;
             document.getElementById("losses").innerHTML = losses;
-        }   
+
+        }  
     }
 }
