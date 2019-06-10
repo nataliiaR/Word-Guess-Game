@@ -28,9 +28,9 @@ span{
     background: url("assets/images/map.jpg");
     width:40em;
     margin: auto;
-    height: 20em;
+    height: 18em;
     opacity: 0.8;
-    background-size: 40em 20em;
+    background-size: 40em 18em;
     box-shadow: 0.5px 0.5px 0.5px 0.5px #888888;
 }
 
