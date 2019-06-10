@@ -141,8 +141,8 @@ function startTheGame() {
                     document.onkeyup = null;
                     document.getElementById("info").style.display="none";
                     document.getElementById("start_game").textContent="Start a new game!";
-                    wins+=wins;
-                    document.getElementById("wins").textContent = wins;
+                    wins=wins+1;
+                    document.getElementById("wins").innerHTML = wins;
                     
                 }
             }
